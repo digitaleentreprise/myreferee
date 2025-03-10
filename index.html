@@ -49,6 +49,12 @@
         .WhiteText {
             background-color: white;
         }
+        .GreyText {
+            background-color: lightgrey;
+        }
+        .UnDisplay {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -57,16 +63,22 @@
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABsElEQVQ4jZWSPUhCURSFz71lZzdmbzZpm6ZNWvWjLR4oaNYvIhGVZ1EoZFDQXNRUExEt1E0RBFNT5gIJWUocTxIbJYxxdud3Jfr/e8u8J3zzP/1VXVwD6dck6WhHTgJLuZbv2POvAO8CpyKeSl0roEbgDxYzHUicfLLZlHl31vBoLTkqS8LPIHDxtOMcRQvwEagjGBeOeJ+7EJg0xE0htJ0IRREPLKyPfZC26OV9sIlp3BdUVanpH2y1mBia+CMsloN+JzEby8DTrZPUIhBBc75kUXNGXLbFgqFBdl4fu6qj5koWS6LobmpIHqx69GpqrbMtlfb5Lo+LTbfgX6TkEGFqMzD1lMQFhujz61gWXshCPv6SxRxlWxgMTWbRlWZRnpK0uqwVa+nGttMCBzI3AlPs7IlJS8mpkSuYNu3wPQu8ESwpSkhFaMnFqC7kS8wIumwAOtkeM89qjRUq6IowBQOk0kyMfoObxImnyKvH7O+dLEC54CS86Gp9fSc26Ol4EGF3/r5UO8QpTliW2iMIieUnMgAAAABJRU5ErkJggg==" alt="Image extraite" />
     </header>
     <nav>
-        VISIBILITE : <button class="WhiteText">Sans Tag</button><button class="WhiteText">Tag par Niveau</button>
-        <br>TAG : <button class="YellowText">Niveau 1</button><button class="GreenText">Niveau 2</button><button class="BlueText">Niveau 3</button>
+        <div>
+            VISIBILITE : <button class="WhiteText" id="Title" onclick="DisplayElements(this.id)">Uniquement les Titres</button><button class="WhiteText" id="Tagged" onclick="DisplayElements(this.id)">Uniquement le contenu Taggé</button><button class="WhiteText" id="All" onclick="DisplayElements(this.id)">Tout le contenu</button>
+        </div>
+        <div>
+            TAG : <button class="WhiteText" id="None" onclick="TaggingText(this.id)">Sans Tag</button><button class="YellowText" id="Niveau1" onclick="TaggingText(this.id)">Niveau 1</button><button class="GreenText" id="Niveau2" onclick="TaggingText(this.id)">Niveau 2</button><button class="BlueText" id="Niveau3" onclick="TaggingText(this.id)">Niveau 3</button><button class="WhiteText" id="All" onclick="TaggingText(this.id)">Tous les Niveaux</button>
+        </div>
+        <div>
+            NIVEAUX ACTIFS : <a class="Viewer GreyText" id="ViewNiveau1">Niveau 1</a><a class="Viewer GreyText" id="ViewNiveau2">Niveau 2</a><a class="Viewer GreyText" id="ViewNiveau3">Niveau 3</a>
     </nav>
     <div class="container">
-        <p>Ce document est destiné aux formateurs en arbitrage et aux candidats pour la certification de niveaux 1, 2 et 3.</p>
+        <p class="PreAmbule">Ce document est destiné aux formateurs en arbitrage et aux candidats pour la certification de niveaux 1, 2 et 3.</p>
         <a class="YellowText">Niveau 1</a><a class="GreenText">Niveau 2</a><a class="BlueText">Niveau 3</a></p>
-        <p>L’objectif est de préciser « les incontournables » par règle que les candidats préparant les différentes épreuves (contrôle continu ou contrôle sur table) devront s’approprier.</p>
-        <p>Nous avons choisi volontairement de ne pas nous référer systématiquement aux définitions proposées dans les règles du jeu de World Rugby car celles-ci sont souvent trop succinctes.</p>
-        <p>Bien sûr ce document ne se suffit pas à lui-même et il est fortement conseillé de prendre en compte les éléments de la règle ne figurant pas dans ce document afin de parfaire son efficacité sur le terrain. Pour cela plusieurs documents sont à disposition : les règles du jeu de World Rugby, le mémento de l’arbitre et l’aide-mémoire du rugby amateur.</p>
-        <p>Plusieurs éléments permettent à un arbitre d’être performant. La connaissance de la règle en fait partie, ce qui donne du sens à ce document mais il nous semble important de souligner ici que quand un arbitre est bien placé sur le terrain il se met dans de bonnes conditions pour « voir » « analyser » et « décider ». Et la meilleure réponse à Quand est-ce que je suis bien placé ? est : Quand je vois le ballon.</p>
+        <p class="PreAmbule">L’objectif est de préciser « les incontournables » par règle que les candidats préparant les différentes épreuves (contrôle continu ou contrôle sur table) devront s’approprier.</p>
+        <p class="PreAmbule">Nous avons choisi volontairement de ne pas nous référer systématiquement aux définitions proposées dans les règles du jeu de World Rugby car celles-ci sont souvent trop succinctes.</p>
+        <p class="PreAmbule">Bien sûr ce document ne se suffit pas à lui-même et il est fortement conseillé de prendre en compte les éléments de la règle ne figurant pas dans ce document afin de parfaire son efficacité sur le terrain. Pour cela plusieurs documents sont à disposition : les règles du jeu de World Rugby, le mémento de l’arbitre et l’aide-mémoire du rugby amateur.</p>
+        <p class="PreAmbule">Plusieurs éléments permettent à un arbitre d’être performant. La connaissance de la règle en fait partie, ce qui donne du sens à ce document mais il nous semble important de souligner ici que quand un arbitre est bien placé sur le terrain il se met dans de bonnes conditions pour « voir » « analyser » et « décider ». Et la meilleure réponse à Quand est-ce que je suis bien placé ? est : Quand je vois le ballon.</p>
     </div>
     <h1>Règle 1 : Le Terrain</h1>
     <div class="container">
@@ -88,68 +100,68 @@
         <p class="Niveau1">L’aire située le long du champ de jeu qui inclut les lignes de touche et l’espace au-delà de ces lignes.</p>
         <h2 class="Niveau1">Touche de but</h2>
         <p class="Niveau1">L’aire située le long de la zone d’en-but qui inclut les lignes de touche de but et l’espace au-delà de ces lignes.</p>
-        <h2>Milieu de terrain</h2>
-        <p>A l’intérieur de l’aire de jeu, loin des lignes de touche.</p>
-        <h2>Ligne des 10 mètres</h2>
-        <p>De chaque côté de la ligne médiane et parallèles à celle-ci</p>
-        <p>La surface de jeu ne doit pas être dangereuse.</p>
-        <p>L’enceinte de jeu comporte des lignes continues tracées selon les indications du plan du terrain. Ces lignes continues sont :</p>
-        <ul>
+        <h2 class="Niveau2">Milieu de terrain</h2>
+        <p class="Niveau2">A l’intérieur de l’aire de jeu, loin des lignes de touche.</p>
+        <h2 class="Niveau2">Ligne des 10 mètres</h2>
+        <p class="Niveau2">De chaque côté de la ligne médiane et parallèles à celle-ci</p>
+        <p class="Niveau2">La surface de jeu ne doit pas être dangereuse.</p>
+        <p class="Niveau3">L’enceinte de jeu comporte des lignes continues tracées selon les indications du plan du terrain. Ces lignes continues sont :</p>
+        <ul class="Niveau3">
             <li>Les lignes de ballon mort et lignes de touche de but.</li>
             <li>Les lignes de but.</li>
             <li>Les lignes des 22 mètres.</li>
             <li>La ligne médiane.</li>
             <li>Les lignes de touche</li>
         </ul>
-        <p>L’enceinte de jeu comporte des lignes discontinues composées de tirets tracés selon les indications du plan du terrain. Chaque tiret dans une ligne discontinue doit mesurer 5 mètres de long. Ces lignes discontinues sont les suivantes</p>
-        <ul>
+        <p class="Niveau3">L’enceinte de jeu comporte des lignes discontinues composées de tirets tracés selon les indications du plan du terrain. Chaque tiret dans une ligne discontinue doit mesurer 5 mètres de long. Ces lignes discontinues sont les suivantes</p>
+        <ul class="Niveau3">
             <li>À 5 mètres de chaque ligne de touche et parallèles à celles-ci.</li>
             <li>À 15 mètres de chaque ligne de touche et parallèles à celles-ci.</li>
             <li>À 10 mètres de chaque côté de la ligne médiane et parallèles à celle-ci.</li>
             <li>À 5 mètres de chaque ligne de but et parallèles à celles-ci.</li>
         </ul>
-        <p>Les équipes doivent informer l’arbitre de toute réclamation avant le début du match.</p>
-        <p>L’arbitre essaiera de trouver une solution à la situation et ne doit pas faire débuter un match si une quelconque partie du terrain est estimée dangereuse.</p>
+        <p class="Niveau2">Les équipes doivent informer l’arbitre de toute réclamation avant le début du match.</p>
+        <p class="Niveau2">L’arbitre essaiera de trouver une solution à la situation et ne doit pas faire débuter un match si une quelconque partie du terrain est estimée dangereuse.</p>
     </div>
     <h1>REGLE 2 LE BALLON</h1>
     <div class="container">
-        <h2>Dispositions spécifiques F.F.R</h2>
-        <p>Les ballons doivent être fournis par l'association recevant ou l'association organisatrice et mis à la disposition de l'arbitre. Ils doivent être tous identiques et conformes à l'aspect et aux dimensions prévus aux règles du jeu de World Rugby.</p>
-        <p>L'association recevant ou l'association organisatrice doit en cas de besoin, tenir à la disposition de l'arbitre autant de ballons que nécessaire au bon déroulement de la rencontre avec les nombres minimaux suivants :</p>
+        <h2 class="Niveau2">Dispositions spécifiques F.F.R</h2>
+        <p class="Niveau2">Les ballons doivent être fournis par l'association recevant ou l'association organisatrice et mis à la disposition de l'arbitre. Ils doivent être tous identiques et conformes à l'aspect et aux dimensions prévus aux règles du jeu de World Rugby.</p>
+        <p class="Niveau2">L'association recevant ou l'association organisatrice doit en cas de besoin, tenir à la disposition de l'arbitre autant de ballons que nécessaire au bon déroulement de la rencontre avec les nombres minimaux suivants :</p>
         <table>
-            <tr><td>Pour les matches des équipes premières de Nationale, Nationale 2, et Fédérale 1</td><td>3</td></tr>
-            <tr><td>Pour les autres niveaux ou catégories</td><td>2</td></tr>
+            <tr class="Niveau3"><td>Pour les matches des équipes premières de Nationale, Nationale 2, et Fédérale 1</td><td>3</td></tr>
+            <tr class="Niveau2"><td>Pour les autres niveaux ou catégories</td><td>2</td></tr>
         </table>
     </div>
     <h1>REGLE 3 L’EQUIPE</h1>
     <div class="container">
-        <h2>Capitaine</h2>
-        <p>Le joueur désigné par une équipe pour la diriger, consulter l’arbitre et choisir les options selon les décisions de l’arbitre.</p>
-        <h2>Coéquipier</h2>
-        <p>Un autre joueur de la même équipe.</p>
-        <h2>Equipe</h2>
-        <p>Un groupe de joueurs, normalement 15, qui débutent le match, plus les remplaçants autorisés.</p>
-        <h2>Fédération</h2>
-        <p>Un organisme, approuvé par World Rugby, responsable de l’organisation et la tenue de matchs dans une zone géographique spécifique</p>
-        <h2>Remplaçant</h2>
-        <p>Un joueur qui remplace un coéquipier à cause d’une blessure ou pour des raisons tactiques.</p>
-        <h2>Blessure qui saigne</h2>
-        <p>Saignement actif non contrôlé</p>
-        <h2>Equipe attaquante </h2>
-        <p>Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
-        <h2>Équipe défendante</h2>
-        <p>L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
-        <h2>Mort</h2>
-        <p>Le ballon est mort lorsque l’arbitre siffle pour arrêter le jeu ou après une transformation manquée</p>
-        <p>Les remplacements ne peuvent être effectués que lorsque le ballon est mort et seulement avec l’autorisation de l’arbitre</p>
-        <h2>Remplacement définitif</h2>
-        <p>Un joueur peut être remplacé s’il est blessé. Un joueur blessé ne peut pas revenir en jeu une fois qu’il a été remplacé.</p>
+        <h2 class="Niveau2">Capitaine</h2>
+        <p class="Niveau2">Le joueur désigné par une équipe pour la diriger, consulter l’arbitre et choisir les options selon les décisions de l’arbitre.</p>
+        <h2 class="Niveau2">Coéquipier</h2>
+        <p class="Niveau2">Un autre joueur de la même équipe.</p>
+        <h2 class="Niveau2">Equipe</h2>
+        <p class="Niveau2">Un groupe de joueurs, normalement 15, qui débutent le match, plus les remplaçants autorisés.</p>
+        <h2 class="Niveau3">Fédération</h2>
+        <p class="Niveau3">Un organisme, approuvé par World Rugby, responsable de l’organisation et la tenue de matchs dans une zone géographique spécifique</p>
+        <h2 class="Niveau2">Remplaçant</h2>
+        <p class="Niveau2">Un joueur qui remplace un coéquipier à cause d’une blessure ou pour des raisons tactiques.</p>
+        <h2 class="Niveau2">Blessure qui saigne</h2>
+        <p class="Niveau2">Saignement actif non contrôlé</p>
+        <h2 class="Niveau2">Equipe attaquante </h2>
+        <p class="Niveau2">Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
+        <h2 class="Niveau2">Équipe défendante</h2>
+        <p class="Niveau2">L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
+        <h2 class="Niveau2">Mort</h2>
+        <p class="Niveau2">Le ballon est mort lorsque l’arbitre siffle pour arrêter le jeu ou après une transformation manquée</p>
+        <p class="Niveau2">Les remplacements ne peuvent être effectués que lorsque le ballon est mort et seulement avec l’autorisation de l’arbitre</p>
+        <h2 class="Niveau2">Remplacement définitif</h2>
+        <p class="Niveau2">Un joueur peut être remplacé s’il est blessé. Un joueur blessé ne peut pas revenir en jeu une fois qu’il a été remplacé.</p>
         <p class="Niveau1">L’arbitre décide (avec ou sans avis médical) qu’il serait déconseillé au joueur de continuer à jouer. L’arbitre ordonne à ce joueur de quitter le terrain.</p>
-        <h2>Remplacement temporaire</h2>
-        <p>Exemple blessure qui saigne: Quand un joueur a une blessure qui saigne, il doit quitter le champ de jeu et peut être temporairement remplacé. Le joueur blessé reprend le jeu dès que le saignement a été contrôlé et/ou pansé. Si ce joueur ne revient pas sur l’aire de jeu dans les 15 minutes (de temps de jeu réel) qui suivent sa sortie, le remplacement devient définitif.</p>
-        <h2>Remplacement tactique</h2>
-        <p>Les joueurs remplacés pour des raisons tactiques ne peuvent revenir en jeu que pour remplacer:</p>
-        <ul>
+        <h2 class="Niveau2">Remplacement temporaire</h2>
+        <p class="Niveau2">Exemple blessure qui saigne: Quand un joueur a une blessure qui saigne, il doit quitter le champ de jeu et peut être temporairement remplacé. Le joueur blessé reprend le jeu dès que le saignement a été contrôlé et/ou pansé. Si ce joueur ne revient pas sur l’aire de jeu dans les 15 minutes (de temps de jeu réel) qui suivent sa sortie, le remplacement devient définitif.</p>
+        <h2 class="Niveau2">Remplacement tactique</h2>
+        <p class="Niveau3">Les joueurs remplacés pour des raisons tactiques ne peuvent revenir en jeu que pour remplacer:</p>
+        <ul class="Niveau3">
             <li>Un joueur de première ligne blessé.</li>
             <li>Un joueur présentant une blessure qui saigne.</li>
             <li>Un joueur qui se soumet à un HIA.</li>
@@ -165,14 +177,14 @@
     </div>
     <h1>RÈGLE 4 - L’ÉQUIPEMENT DES JOUEURS</h1>
     <div class="container">
-        <h2>Équipement des joueurs</h2>
-        <p>Tout ce que les joueurs portent qui, pour être autorisés, doivent respecter le Règlement 12 de World Rugby.</p>
-        <h2>Short</h2>
-        <p>Le pantalon qui commence à la taille et se termine au-dessus des genoux, est serré à la taille par un élastique et/ou un cordon et n’est pas attaché au maillot, ni au sous-vêtement.</p>
-        <h2>Sous-short</h2>
-        <p>Un sous-vêtement qui couvre le corps de la taille, est court ou sans jambe se termine au-dessus des genoux. Il est porté sur la peau ou sous la tenue et n’est pas attaché au maillot ni au short.</p>
-        <h2>Maillot</h2>
-        <p>Une tenue portée sur le haut du corps et qui n’est pas attachée au short ni aux sous-vêtements.</p>
+        <h2 class="Niveau2">Équipement des joueurs</h2>
+        <p class="Niveau2">Tout ce que les joueurs portent qui, pour être autorisés, doivent respecter le Règlement 12 de World Rugby.</p>
+        <h2 class="Niveau2">Short</h2>
+        <p class="Niveau2">Le pantalon qui commence à la taille et se termine au-dessus des genoux, est serré à la taille par un élastique et/ou un cordon et n’est pas attaché au maillot, ni au sous-vêtement.</p>
+        <h2 class="Niveau2">Sous-short</h2>
+        <p class="Niveau2">Un sous-vêtement qui couvre le corps de la taille, est court ou sans jambe se termine au-dessus des genoux. Il est porté sur la peau ou sous la tenue et n’est pas attaché au maillot ni au short.</p>
+        <h2 class="Niveau2">Maillot</h2>
+        <p class="Niveau2">Une tenue portée sur le haut du corps et qui n’est pas attachée au short ni aux sous-vêtements.</p>
         <p class="Niveau1">Les joueuses et les joueurs peuvent porter des collants longs ou leggings (jambières) en mélange de coton, avec une seule couture à l'intérieur des jambes sous leurs shorts et chaussettes.</p>
         <p class="Niveau1">L’arbitre a le pouvoir de décider à tout moment qu’une partie quelconque de l’équipement d’un joueur est dangereuse ou interdite. Dans ce cas, l’arbitre doit ordonner au joueur de retirer cet article.     Le joueur ne doit pas reprendre part au match avant d’avoir retiré cet article ou l’avoir rendu inoffensif.</p>
         <p class="Niveau1">Si, lors d’une inspection d’avant match, un officiel de match signale à un joueur qu’il porte un équipement interdit par la présente règle et que ce joueur est ultérieurement pris à porter cet     équipement sur l’aire de jeu, ce joueur sera exclu pour incorrection.<br><strong>Sanction :</strong> Pénalité.</p>
@@ -182,22 +194,22 @@
     </div>
     <h1>RÈGLE 5 - DURÉE DE LA PARTIE</h1>
     <div class="container">
-        <h2>Mi-temps</h2>
-        <p>La pause entre les deux moitiés de la partie.</p>
-        <h2>Temps de jeu</h2>
-        <p>Le temps de jeu réel, ne tenant pas compte du temps perdu pour les arrêts de jeu (voir temps de jeu réel).</p>
-        <h2>Temps réel de jeu</h2>
-        <p>Temps écoulé continu (voir temps de jeu).</p>
-        <h2>Mort</h2>
-        <p>Le ballon est mort lorsque l’arbitre siffle pour arrêter le jeu ou après une transformation manquée.</p>
-        <h2>Arrêts de jeu</h2>
-        <p>L’arbitre peut arrêter le jeu pour les raisons suivantes :</p>
-        <ul>
+        <h2 class="Niveau2">Mi-temps</h2>
+        <p class="Niveau2">La pause entre les deux moitiés de la partie.</p>
+        <h2 class="Niveau2">Temps de jeu</h2>
+        <p class="Niveau2">Le temps de jeu réel, ne tenant pas compte du temps perdu pour les arrêts de jeu (voir temps de jeu réel).</p>
+        <h2 class="Niveau2">Temps réel de jeu</h2>
+        <p class="Niveau2">Temps écoulé continu (voir temps de jeu).</p>
+        <h2 class="Niveau2">Mort</h2>
+        <p class="Niveau2">Le ballon est mort lorsque l’arbitre siffle pour arrêter le jeu ou après une transformation manquée.</p>
+        <h2 class="Niveau2">Arrêts de jeu</h2>
+        <p class="Niveau2">L’arbitre peut arrêter le jeu pour les raisons suivantes :</p>
+        <ul class="Niveau2">
             <li>Blessure d’un joueur, jusqu’à une minute. Si un joueur est gravement blessé, l’arbitre peut arrêter le jeu pendant plus d’une minute pour que le joueur soit évacué de l’aire de jeu.</li>
             <li>Consulter les autres officiels.</li>
         </ul>
-        <p>Une fois que le ballon est mort, l’arbitre peut arrêter le jeu pour les raisons suivantes :</p>
-        <ul>
+        <p class="Niveau2">Une fois que le ballon est mort, l’arbitre peut arrêter le jeu pour les raisons suivantes :</p>
+        <ul class="Niveau2">
             <li>Le remplacement de joueurs.</li>
             <li>Le remplacement ou la réparation de l’équipement d’un joueur.</li>
             <li>Renouer un lacet de chaussure.</li>
@@ -252,18 +264,18 @@
     </div>
     <h1>RÈGLE 6 - OFFICIELS DE MATCH</h1>
     <div class="container">
-        <h2>Officiels de match</h2>
-        <p>Les personnes qui contrôlent la partie, consistant normalement en un arbitre et deux arbitres assistants ou juges de touche mais pouvant également inclure un officiel de match TV et, dans le rugby à VII, deux juges d’en-but.</p>
-        <h2>Organisateur de match</h2>
-        <p>L’organisme administratif responsable du match qui peut être World Rugby, une fédération, un groupe de fédérations ou une organisation approuvée par une fédération ou World Rugby.</p>
-        <p>Chaque match est sous le contrôle des officiels de match, qui sont un arbitre et deux juges de touche ou arbitres assistants. Les personnes supplémentaires, autorisées par les organisateurs du match,  peuvent comprendre l’arbitre de réserve et/ou l’arbitre assistant de réserve, un officiel de match TV, le chronométreur, le médecin du match, les médecins des équipes, les membres non-joueurs des équipes  et les ramasseurs de balle.</p>
-        <p>Les arbitres assistants et les juges de touche ont la responsabilité du signalement de la touche, la touche de but et de la réussite ou de l’échec des tentatives de but. En outre, les arbitres     assistants fournissent l’assistance que peut demander l’arbitre, y compris le signalement du jeu déloyal.</p>
-        <p>L’arbitre et 2 juges de touches ou arbitres assistants</p>
-        <ul>
+        <h2 class="Niveau2">Officiels de match</h2>
+        <p class="Niveau2">Les personnes qui contrôlent la partie, consistant normalement en un arbitre et deux arbitres assistants ou juges de touche mais pouvant également inclure un officiel de match TV et, dans le rugby à VII, deux juges d’en-but.</p>
+        <h2 class="Niveau3">Organisateur de match</h2>
+        <p class="Niveau3">L’organisme administratif responsable du match qui peut être World Rugby, une fédération, un groupe de fédérations ou une organisation approuvée par une fédération ou World Rugby.</p>
+        <p class="Niveau3">Chaque match est sous le contrôle des officiels de match, qui sont un arbitre et deux juges de touche ou arbitres assistants. Les personnes supplémentaires, autorisées par les organisateurs du match,  peuvent comprendre l’arbitre de réserve et/ou l’arbitre assistant de réserve, un officiel de match TV, le chronométreur, le médecin du match, les médecins des équipes, les membres non-joueurs des équipes  et les ramasseurs de balle.</p>
+        <p class="Niveau3">Les arbitres assistants et les juges de touche ont la responsabilité du signalement de la touche, la touche de but et de la réussite ou de l’échec des tentatives de but. En outre, les arbitres     assistants fournissent l’assistance que peut demander l’arbitre, y compris le signalement du jeu déloyal.</p>
+        <p class="Niveau3">L’arbitre et 2 juges de touches ou arbitres assistants</p>
+        <ul class="Niveau3">
             <li><strong>Le juge de touche</strong> : il n’est pas désigné par l’organisateur de la rencontre (joueur remplaçant par exemple) et est chargé d’indiquer la touche ou la touche de but ainsi que la réussite ou non des tentatives de but. Si un     juge de touche ne donne pas satisfaction, l’arbitre peut demander son remplacement. Si l’arbitre estime qu’il a commis une incorrection, il a le pouvoir de l’exclure et de faire un rapport.</li>
             <li><strong>L’arbitre assistant</strong> : il est chargé d’assister l’arbitre dans ses fonctions et notamment de signaler les sorties en touche et touche de but, la réussite ou non des tentatives de but, mais aussi le jeu déloyal et le chronométrage. L’arbitre peut aussi lui demander une assistance pour les autres devoirs et aspects des devoirs de l’arbitre.</li>
         </ul>
-        <p>L’arbitre peut à tout moment passer outre leurs décisions.</p>
+        <p class="Niveau3">L’arbitre peut à tout moment passer outre leurs décisions.</p>
     </div>
     <h1>RÈGLE 7 - L’AVANTAGE</h1>
     <div class="container">
@@ -277,8 +289,8 @@
             <li>Peut être mélange, tactique et territorial.</li>
             <li>Clair et réel : Une simple opportunité ne suffit pas.</li>
         </ul>
-        <h2>L’avantage est terminé si :</h2>
-        <ul>
+        <h2 class="Niveau2">L’avantage est terminé si :</h2>
+        <ul class="Niveau2">
             <li>L’arbitre considère que l’équipe non fautive a obtenu un avantage. L'arbitre laisse le jeu se poursuivre; ou</li>
             <li>L’arbitre considère que l’équipe non fautive n’obtiendra probablement pas d’avantage. L’arbitre arrête le jeu et applique la sanction pour l’infraction à partir de laquelle l’avantage avait été joué ; ou</li>
             <li>L’équipe non fautive commet une infraction avant d’avoir obtenu un avantage. L’arbitre arrête le jeu et applique la sanction pour la première infraction. Si une infraction relève du jeu déloyal, l’arbitre appliquera la ou les sanctions appropriées pour cette infraction; ou</li>
@@ -300,8 +312,8 @@
     <div class="container">
         <h2 class="Niveau1">But</h2>
         <p class="Niveau1">Le ballon passe au-dessus de la barre transversale de l’équipe adverse sur un coup de pied placé ou tombé donné à l’intérieur du champ de jeu.</p>
-        <h2>Coup de pied placé</h2>
-        <p>Le ballon est botté après avoir été placé au sol (ou sur un tee approuvé) pour cela</p>
+        <h2 class="Niveau2">Coup de pied placé</h2>
+        <p class="Niveau2">Le ballon est botté après avoir été placé au sol (ou sur un tee approuvé) pour cela</p>
         <h2 class="Niveau1">Coup franc</h2>
         <p class="Niveau1">Accordé contre une équipe qui a commis une infraction ou à une équipe qui a effectué un marque.</p>
         <h2 class="Niveau1">Drop</h2>
@@ -315,14 +327,14 @@
             <li>Porteur du ballon est plaqué près de la ligne de but adverse et peut tendre immédiatement le ou les bras et faire un touché à terre.</li>
             <li>Qui est en touche ou en touche de but, fait un touché à terre dans l’en-but adverse, à condition qu’il ne soit pas porteur du ballon.</li>
         </ul>
-        <h2>Essai de pénalité</h2>
-        <p>Accordé lorsque, selon l’arbitre, un essai aurait probablement été marqué (ou marqué dans une position plus avantageuse) sans un acte de jeu déloyal commis par un adversaire.</p>
+        <h2 class="Niveau2">Essai de pénalité</h2>
+        <p class="Niveau2">Accordé lorsque, selon l’arbitre, un essai aurait probablement été marqué (ou marqué dans une position plus avantageuse) sans un acte de jeu déloyal commis par un adversaire.</p>
         <h2 class="Niveau1">Pénalité</h2>
         <p class="Niveau1">Accordée contre une équipe qui a commis une infraction grave.</p>
-        <h2>Tee</h2>
-        <p>Tout équipement approuvé par l’organisateur du match pour soutenir le ballon lors d’un coup de pied</p>
-        <h2>Placeur</h2>
-        <p>Un joueur qui tient le ballon au sol pour qu’un coéquipier le botte</p>
+        <h2 class="Niveau3">Tee</h2>
+        <p class="Niveau3">Tout équipement approuvé par l’organisateur du match pour soutenir le ballon lors d’un coup de pied</p>
+        <h2 class="Niveau3">Placeur</h2>
+        <p class="Niveau3">Un joueur qui tient le ballon au sol pour qu’un coéquipier le botte</p>
         <p class="Niveau1">Méthodes de marque et valeurs des points :</p>
         <ul class="Niveau1">
             <li>Essai. <strong>Cinq points.</strong></li>
@@ -338,27 +350,27 @@
         <p class="Niveau1">Le carton infligé à un joueur par l’arbitre pour signaler que ce joueur a été averti et exclu temporairement.</p>
         <h2 class="Niveau1">Carton rouge</h2>
         <p class="Niveau1">Le carton infligé à un joueur par l’arbitre pour signaler que ce joueur a été exclu définitivement du match.</p>
-        <h2>Jeu déloyal</h2>
-        <p>Tout acte commis par un joueur dans l’enceinte de jeu qui est contraire à la règle 9 couvrant les cas d’obstruction, antijeu, fautes répétées, jeu dangereux et incorrection.</p>
-        <h2>Exclu</h2>
-        <p>Un joueur reçoit un carton rouge et est définitivement exclu du match.</p>
-        <h2>Zone d’exclusion temporaire</h2>
-        <p>L’endroit désigné hors de l’aire de jeu où doit rester un joueur temporairement suspendu.</p>
-        <h2>Temporairement suspendu</h2>
-        <p>Exclu de la partie pour une période de temps de jeu spécifiée, normalement 10 minutes</p>
+        <h2 class="Niveau2">Jeu déloyal</h2>
+        <p class="Niveau2">Tout acte commis par un joueur dans l’enceinte de jeu qui est contraire à la règle 9 couvrant les cas d’obstruction, antijeu, fautes répétées, jeu dangereux et incorrection.</p>
+        <h2 class="Niveau2">Exclu</h2>
+        <p class="Niveau2">Un joueur reçoit un carton rouge et est définitivement exclu du match.</p>
+        <h2 class="Niveau2">Zone d’exclusion temporaire</h2>
+        <p class="Niveau2">L’endroit désigné hors de l’aire de jeu où doit rester un joueur temporairement suspendu.</p>
+        <h2 class="Niveau2">Temporairement suspendu</h2>
+        <p class="Niveau2">Exclu de la partie pour une période de temps de jeu spécifiée, normalement 10 minutes</p>
         <h2 class="Niveau1">Obstruction</h2>
-        <p>Quand un joueur qui tente de jouer est illégalement gêné et empêché de jouer.</p>
-        <h2>Coin volant</h2>
-        <p>Une forme d’attaque interdite, qui se produit en général près de la ligne de but après que l’équipe attaquante bénéficie d’une pénalité ou d’un coup franc. Les partenaires se lient des deux côtés du porteur du ballon, formant un V. Souvent un ou plusieurs de ces partenaires sont devant le porteur du ballon.</p>
-        <h2>Coin volant - Règle expérimentale de World Rugby (saison 2021/2022)</h2>
-        <p>Les équipes ne doivent pas effectuer de «coin volant»</p>
+        <p class="Niveau2">Quand un joueur qui tente de jouer est illégalement gêné et empêché de jouer.</p>
+        <h2 class="Niveau2">Coin volant</h2>
+        <p class="Niveau2">Une forme d’attaque interdite, qui se produit en général près de la ligne de but après que l’équipe attaquante bénéficie d’une pénalité ou d’un coup franc. Les partenaires se lient des deux côtés du porteur du ballon, formant un V. Souvent un ou plusieurs de ces partenaires sont devant le porteur du ballon.</p>
+        <h2 class="Niveau2">Coin volant - Règle expérimentale de World Rugby (saison 2021/2022)</h2>
+        <p class="Niveau2">Les équipes ne doivent pas effectuer de «coin volant»</p>
         <h2 class="Niveau1">Cravate</h2>
         <p class="Niveau1">Un plaquage illégal dans le cadre duquel un joueur utilise un bras tendu pour frapper le porteur du ballon</p>
-        <h2>Faute sur le gratteur – Règle expérimentale de World Rugby (saison 2021/2022)</h2>
-        <p>Un joueur peut déblayer le gratteur hors du ruck, mais il ne doit pas se laisser tomber de tout son poids ou cibler les membres inférieurs de ce joueur (sanction: Pénalité)</p>
-        <h2>Sanction</h2>
-        <p>La méthode qui permet de reprendre le jeu après une infraction ou un arrêt de jeu</p>
-        <p>Un joueur qui commet un acte de jeu déloyal doit être soit averti soit temporairement exclu ou définitivement exclu.</p>
+        <h2 class="Niveau2">Faute sur le gratteur – Règle expérimentale de World Rugby (saison 2021/2022)</h2>
+        <p class="Niveau2">Un joueur peut déblayer le gratteur hors du ruck, mais il ne doit pas se laisser tomber de tout son poids ou cibler les membres inférieurs de ce joueur (sanction: Pénalité)</p>
+        <h2 class="Niveau2">Sanction</h2>
+        <p class="Niveau2">La méthode qui permet de reprendre le jeu après une infraction ou un arrêt de jeu</p>
+        <p class="Niveau2">Un joueur qui commet un acte de jeu déloyal doit être soit averti soit temporairement exclu ou définitivement exclu.</p>
         <h2 class="Niveau1">Les différentes formes de jeu déloyal : </h2>
         <ul class="Niveau1">
             <li>Obstruction</li>
@@ -367,38 +379,38 @@
             <li>Jeu dangereux</li>
             <li>Incorrection</li>
         </ul>
-        <p>Quand un joueur est averti et exclu pendant 10 minutes, l’arbitre montrera à ce joueur un carton jaune. Si ce joueur commet ensuite une autre faute qui mérite un carton jaune, il doit être définitivement exclu.</p>
-        <p>Quand un joueur est définitivement exclu, l’arbitre montrera un carton rouge à ce joueur qui ne prendra plus part au match. Un joueur définitivement exclu ne peut pas être remplacé.</p>
-        <h2>Disposition spécifique F.F.R</h2>
-        <h2>Le carton blanc</h2>
-        <p>Fautes techniques - fautes répétées (non- applicable aux compétitions professionnelles, à la 1ère Division Fédérale et à l’Elite 1 et 2 Féminines)</p>
-        <p>Le carton BLANC doit sanctionner la faute d’un joueur relative au jeu et il ne se cumule ni avec un autre carton BLANC, ni avec un carton JAUNE.</p>
+        <p class="Niveau2">Quand un joueur est averti et exclu pendant 10 minutes, l’arbitre montrera à ce joueur un carton jaune. Si ce joueur commet ensuite une autre faute qui mérite un carton jaune, il doit être définitivement exclu.</p>
+        <p class="Niveau2">Quand un joueur est définitivement exclu, l’arbitre montrera un carton rouge à ce joueur qui ne prendra plus part au match. Un joueur définitivement exclu ne peut pas être remplacé.</p>
+        <h2 class="Niveau2">Disposition spécifique F.F.R</h2>
+        <h2 class="Niveau2">Le carton blanc</h2>
+        <p class="Niveau2">Fautes techniques - fautes répétées (non- applicable aux compétitions professionnelles, à la 1ère Division Fédérale et à l’Elite 1 et 2 Féminines)</p>
+        <p class="Niveau2">Le carton BLANC doit sanctionner la faute d’un joueur relative au jeu et il ne se cumule ni avec un autre carton BLANC, ni avec un carton JAUNE.</p>
     </div>
     <h1>REGLE 10 HORS-JEU ET EN JEU DANS LE JEU COURANT</h1>
     <div class="container">
-        <h2>Au-delà ou derrière ou devant une position</h2>
-        <p>Signifie avec les deux pieds, sauf si le contexte ne permet pas cette interprétation.</p>
+        <h2 class="Niveau3">Au-delà ou derrière ou devant une position</h2>
+        <p class="Niveau3">Signifie avec les deux pieds, sauf si le contexte ne permet pas cette interprétation.</p>
         <h2 class="Niveau1">Dernier</h2>
         <p class="Niveau1">Le plus près de la ligne de but d’une équipe</p>
-        <h2>Hors-jeu</h2>
-        <p>Une faute de positionnement qui fait qu’un joueur ne peut pas prendre part au jeu sans être passible de sanction.</p>
-        <h2>Jeu courant</h2>
-        <p>La période après un coup d’envoi, un renvoi, un coup franc, une pénalité ou une phase statique et avant la prochaine phase, ou la période entre les phases de jeu, sauf quand le ballon est mort.</p>
-        <h2>Joué</h2>
-        <p>Le ballon est joué quand il est délibérément touché par un joueur.</p>
+        <h2 class="Niveau2">Hors-jeu</h2>
+        <p class="Niveau2">Une faute de positionnement qui fait qu’un joueur ne peut pas prendre part au jeu sans être passible de sanction.</p>
+        <h2 class="Niveau2">Jeu courant</h2>
+        <p class="Niveau2">La période après un coup d’envoi, un renvoi, un coup franc, une pénalité ou une phase statique et avant la prochaine phase, ou la période entre les phases de jeu, sauf quand le ballon est mort.</p>
+        <h2 class="Niveau2">Joué</h2>
+        <p class="Niveau2">Le ballon est joué quand il est délibérément touché par un joueur.</p>
         <h2 class="Niveau1">Liaison (se lier)</h2>
         <p class="Niveau1">Saisir fermement le corps d’un autre joueur, des épaules aux hanches, avec la totalité du bras, de la main à l’épaule, en contact.</p>
-        <h2>Lié au porteur du ballon</h2>
-        <p>Lié à un coéquipier avant le contact</p>
-        <h2>Porteur du ballon</h2>
-        <p>Un joueur qui est en possession du ballon.</p>
-        <h2>Coup de pied</h2>
-        <p>Une action effectuée en frappant délibérément le ballon avec une partie de la jambe ou du pied, talon exclu, des orteils au genou, mais genou exclu. Un coup de pied doit déplacer le ballon sur une distance visible par rapport à la main ou le long du sol</p>
-        <p>Le jeu est joué par des joueurs qui sont en jeu.</p>
-        <h2>Hors-jeu dans le jeu courant</h2>
-        <p>Un joueur est hors-jeu dans le jeu courant s’il se trouve en avant d’un coéquipier qui porte le ballon ou qui l’a joué en dernier. Un joueur hors-jeu ne doit pas interférer avec le jeu.</p>
-        <h2>Hors-jeu sur ruck, maul, mêlée ordonnée et alignement</h2>
-        <p>Un joueur qui est hors-jeu lors d’un ruck, d’un maul, d’une mêlée ordonnée ou d’un alignement reste hors-jeu, même après la fin du ruck, du maul, de la mêlée ordonnée ou de l’alignement.</p>
+        <h2 class="Niveau2">Lié au porteur du ballon</h2>
+        <p class="Niveau2">Lié à un coéquipier avant le contact</p>
+        <h2 class="Niveau2">Porteur du ballon</h2>
+        <p class="Niveau2">Un joueur qui est en possession du ballon.</p>
+        <h2 class="Niveau2">Coup de pied</h2>
+        <p class="Niveau2">Une action effectuée en frappant délibérément le ballon avec une partie de la jambe ou du pied, talon exclu, des orteils au genou, mais genou exclu. Un coup de pied doit déplacer le ballon sur une distance visible par rapport à la main ou le long du sol</p>
+        <p class="Niveau2">Le jeu est joué par des joueurs qui sont en jeu.</p>
+        <h2 class="Niveau2">Hors-jeu dans le jeu courant</h2>
+        <p class="Niveau2">Un joueur est hors-jeu dans le jeu courant s’il se trouve en avant d’un coéquipier qui porte le ballon ou qui l’a joué en dernier. Un joueur hors-jeu ne doit pas interférer avec le jeu.</p>
+        <h2 class="Niveau2">Hors-jeu sur ruck, maul, mêlée ordonnée et alignement</h2>
+        <p class="Niveau2">Un joueur qui est hors-jeu lors d’un ruck, d’un maul, d’une mêlée ordonnée ou d’un alignement reste hors-jeu, même après la fin du ruck, du maul, de la mêlée ordonnée ou de l’alignement.</p>
         <h2 class="Niveau1">Cas de remise en jeu sur hors-jeu dans le jeu courant</h2>
         <h2 class="Niveau1">Par le joueur lui-même</h2>
         <ul class="Niveau1">
@@ -452,24 +464,24 @@
         <h2 class="Niveau1">Vers l’avant</h2>
         <p class="Niveau1">En direction de la ligne de ballon mort adverse.</p>
         <p class="Niveau1">Un en-avant peut être commis n’importe où dans l’aire de jeu.</p>
-        <p>Une passe en-avant peut être effectuée n’importe où dans l’aire de jeu.</p>
+        <p class="Niveau3">Une passe en-avant peut être effectuée n’importe où dans l’aire de jeu.</p>
     </div>
     <h1>REGLE 12 COUP D’ENVOI ET RENVOIS</h1>
     <div class="container">
-        <h2>Coup d’envoi</h2>
-        <p>La façon de faire commencer chaque période d’un match et au début de chaque période des prolongations, par un drop</p>
-        <h2>Renvoi</h2>
-        <p>La méthode pour reprendre le jeu par un drop après un score ou un touché en but.</p>
-        <p>Les coups d’envoi sont donnés au centre ou en arrière du centre de la ligne médiane. Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
-        <p>Les adversaires de l’équipe qui a donné le coup d’envoi au début du match donneront le coup d’envoi de la deuxième période.</p>
-        <p>Après l’obtention de points, les adversaires de l’équipe ayant marqué les points feront reprendre le jeu au centre ou en arrière du centre de la ligne médiane Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
-        <p>Quand le ballon est botté :</p>
-        <ul>
+        <h2 class="Niveau2">Coup d’envoi</h2>
+        <p class="Niveau2">La façon de faire commencer chaque période d’un match et au début de chaque période des prolongations, par un drop</p>
+        <h2 class="Niveau2">Renvoi</h2>
+        <p class="Niveau2">La méthode pour reprendre le jeu par un drop après un score ou un touché en but.</p>
+        <p class="Niveau2">Les coups d’envoi sont donnés au centre ou en arrière du centre de la ligne médiane. Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
+        <p class="Niveau2">Les adversaires de l’équipe qui a donné le coup d’envoi au début du match donneront le coup d’envoi de la deuxième période.</p>
+        <p class="Niveau2">Après l’obtention de points, les adversaires de l’équipe ayant marqué les points feront reprendre le jeu au centre ou en arrière du centre de la ligne médiane Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
+        <p class="Niveau2">Quand le ballon est botté :</p>
+        <ul class="Niveau2">
             <li>Les coéquipiers du botteur doivent se tenir en arrière du ballon. Sanction : Mêlée ordonnée.</li>
             <li>Les joueurs adverses doivent se tenir sur ou en arrière de la ligne des 10 mètres. Sanction : Faire rejouer le coup de pied.</li>
         </ul>
-        <p>Le ballon doit atteindre la ligne des 10 mètres. Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
-        <p>Si le ballon atteint la ligne des 10 mètres mais est ensuite repoussé par le vent ou si un adversaire joue le ballon avant qu’il n’atteigne la ligne des 10 mètres, le jeu se poursuivra.</p>
+        <p class="Niveau2">Le ballon doit atteindre la ligne des 10 mètres. Sanction : L’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
+        <p class="Niveau2">Si le ballon atteint la ligne des 10 mètres mais est ensuite repoussé par le vent ou si un adversaire joue le ballon avant qu’il n’atteigne la ligne des 10 mètres, le jeu se poursuivra.</p>
         <p class="Niveau1">Si le ballon sort directement en touche, l’équipe adverse a le choix entre les options suivantes:</p>
         <ul class="Niveau1">
             <li>Faire rejouer le coup de pied.</li>
@@ -479,11 +491,11 @@
         </ul>
         <p class="Niveau1">Si le ballon est botté dans l’en-but adverse sans avoir touché un joueur et qu’un adversaire effectue un touché à terre sans délai ou si le ballon devient mort en passant par l’en-but, l’équipe adverse a le choix entre faire rejouer le coup de pied ou une mêlée ordonnée.</p>
         <p class="Niveau1">Si le ballon est botté dans l’en-but de l’équipe qui botte et est rendu mort par un défenseur ou s’il devient mort en passant par l’en-but, l’équipe adverse bénéficiera d’une mêlée à cinq mètres.</p>
-        <h2>Règle World Rugby (expérimentale saison 2021/2022)</h2>
-        <h2>Autres coups de pied de renvoi (renvois)</h2>
-        <p>Le jeu reprendra par un renvoi aux 22 mètres si, après la tentative manquée d’un but sur pénalité ou d’un drop goal, le ballon fait l’objet d’un touché en but ou est rendu mort par l’équipe défendante dans son en-but, ou si le ballon devient mort en passant par l’en-but à la suite de l’une de ces tentatives.</p>
-        <p>Le jeu reprendra par un drop de renvoi sur la ligne de but si :</p>
-        <ul>
+        <h2 class="Niveau2">Règle World Rugby (expérimentale saison 2021/2022)</h2>
+        <h2 class="Niveau2">Autres coups de pied de renvoi (renvois)</h2>
+        <p class="Niveau2">Le jeu reprendra par un renvoi aux 22 mètres si, après la tentative manquée d’un but sur pénalité ou d’un drop goal, le ballon fait l’objet d’un touché en but ou est rendu mort par l’équipe défendante dans son en-but, ou si le ballon devient mort en passant par l’en-but à la suite de l’une de ces tentatives.</p>
+        <p class="Niveau2">Le jeu reprendra par un drop de renvoi sur la ligne de but si :</p>
+        <ul class="Niveau2">
             <li>Le ballon est joué ou emmené dans l’en-but par un joueur attaquant et est bloqué, touché à terre ou rendu autrement mort légalement par un adversaire.</li>
             <li>Un coup de pied d’un attaquant, autre qu’un coup d’envoi, qu’un renvoi après un score, qu’un drop-goal, qu’un renvoi sur la ligne de but ou une tentative de but sur pénalité, fait l’objet d’un touché en but ou est rendu mort par l’équipe défendante dans son en-but.</li>
             <li>Un attaquant commet un en-avant dans l’en-but adverse.<br>
@@ -494,8 +506,8 @@
                 </table>
             </li>
         </ul>
-        <p>Un drop de renvoi :</p>
-        <ul>
+        <p class="Niveau2">Un drop de renvoi :</p>
+        <ul class="Niveau2">
             <li>Est botté de n’importe quel endroit indiqué dans le tableau (sanction: mêlée ordonnée)</li>
             <li>Doit être botté sans délai (sanction: coup franc)</li>
             <li>Doit franchir la ligne de sanction indiquée dans le tableau (sanction: l’équipe adverse à le choix entre faire rejouer le coup de pied ou une mêlée ordonnée)</li>
@@ -504,47 +516,46 @@
     </div>
     <h1>REGLE 13 JOUEURS AU SOL DANS LE JEU COURANT</h1>
     <div class="container">
-        <h2>Pas sur ses pieds</h2>
-        <p>Un joueur n’est pas sur ses pieds quand une autre partie de son corps s’appuie sur le sol ou des joueurs au sol.</p>
-        <h2>Sur ses pieds</h2>
-        <p>Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
-        <p>Le jeu se joue avec des joueurs qui sont sur leurs pieds (debout).</p>
-        <h2>Obligations du joueur au sol</h2>
-        <p>Les joueurs qui vont au sol pour ramasser le ballon ou qui vont au sol avec le ballon, doivent immédiatement:</p>
-        <ul>
-            <li>Se relever avec le ballon ; ou
-            <li>Jouer (mais ne pas botter) le ballon ; ou
-            <li>Lâcher le ballon.
+        <h2 class="Niveau2">Pas sur ses pieds</h2>
+        <p class="Niveau2">Un joueur n’est pas sur ses pieds quand une autre partie de son corps s’appuie sur le sol ou des joueurs au sol.</p>
+        <h2 class="Niveau2">Sur ses pieds</h2>
+        <p class="Niveau2">Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
+        <p class="Niveau2">Le jeu se joue avec des joueurs qui sont sur leurs pieds (debout).</p>
+        <h2 class="Niveau2">Obligations du joueur au sol</h2>
+        <p class="Niveau2">Les joueurs qui vont au sol pour ramasser le ballon ou qui vont au sol avec le ballon, doivent immédiatement:</p>
+        <ul class="Niveau2">
+            <li>Se relever avec le ballon ; ou</li>
+            <li>Jouer (mais ne pas botter) le ballon ; ou</li>
+            <li>Lâcher le ballon.<br>Sanction : Pénalité</li>
         </ul>
-        <p>Sanction : Pénalité</p>
     </div>
     <h1>REGLE 14 LE PLAQUAGE</h1>
     <div class="container">
-        <h2>Joueur plaqué</h2>
-        <p>Un porteur du ballon qui est tenu et mis au sol par un ou plusieurs plaqueurs.</p>
-        <h2>Plaquage</h2>
-        <p>La méthode pour tenir un porteur du ballon et mettre ce joueur au sol.</p>
-        <h2>Plaqueur</h2>
-        <p>Un joueur adverse qui tient le joueur plaqué et va au sol.</p>
-        <h2>Porteur du ballon</h2>
-        <p>Un joueur qui est en possession du ballon.</p>
+        <h2 class="Niveau2">Joueur plaqué</h2>
+        <p class="Niveau2">Un porteur du ballon qui est tenu et mis au sol par un ou plusieurs plaqueurs.</p>
+        <h2 class="Niveau2">Plaquage</h2>
+        <p class="Niveau2">La méthode pour tenir un porteur du ballon et mettre ce joueur au sol.</p>
+        <h2 class="Niveau2">Plaqueur</h2>
+        <p class="Niveau2">Un joueur adverse qui tient le joueur plaqué et va au sol.</p>
+        <h2 class="Niveau2">Porteur du ballon</h2>
+        <p class="Niveau2">Un joueur qui est en possession du ballon.</p>
 
-        <h2>Le gratteur – Règle expérimentale de World Rugby (saison 2021/2022)</h2>
-        <p>Le gratteur est le premier coéquipier du plaqueur à arriver sur la zone de plaquage. Il doit rester sur ses pieds et attaquer directement le ballon. S’il était déjà impliqué dans le plaquage, il doit d’abord clairement libérer le porteur du ballon avant de lutter pour la possession du ballon</p>
-        <h2>Possession</h2>
-        <p>Un joueur ou une équipe qui a le contrôle du ballon ou tente de le contrôler</p>
-        <h2>Tenir le ballon</h2>
-        <p>Etre en possession du ballon avec une ou les deux mains ou avec un ou les deux bras</p>
-        <h2>Raffut</h2>
-        <p>Une action permise, effectuée par un porteur du ballon pour repousser un adversaire en se servant de la paume de la main</p>
+        <h2 class="Niveau2">Le gratteur – Règle expérimentale de World Rugby (saison 2021/2022)</h2>
+        <p class="Niveau2">Le gratteur est le premier coéquipier du plaqueur à arriver sur la zone de plaquage. Il doit rester sur ses pieds et attaquer directement le ballon. S’il était déjà impliqué dans le plaquage, il doit d’abord clairement libérer le porteur du ballon avant de lutter pour la possession du ballon</p>
+        <h2 class="Niveau3">Possession</h2>
+        <p class="Niveau3">Un joueur ou une équipe qui a le contrôle du ballon ou tente de le contrôler</p>
+        <h2 class="Niveau3">Tenir le ballon</h2>
+        <p class="Niveau3">Etre en possession du ballon avec une ou les deux mains ou avec un ou les deux bras</p>
+        <h2 class="Niveau2">Raffut</h2>
+        <p class="Niveau2">Une action permise, effectuée par un porteur du ballon pour repousser un adversaire en se servant de la paume de la main</p>
         <h2 class="Niveau1">Près</h2>
         <p class="Niveau1">A moins d’un mètre</p>
         <h2 class="Niveau1">Où?</h2>
         <p class="Niveau1">Un plaquage peut avoir lieu partout dans le champ de jeu.</p>
         <p class="Niveau1">Les actions des joueurs impliqués dans le plaquage doivent assurer une lutte équitable et permettre au ballon d’être immédiatement disponible pour être joué.</p>
-        <h2>Joueurs dans le plaquage</h2>
-        <p>Les joueurs impliqués dans un plaquage sont :</p>
-        <ul>
+        <h2 class="Niveau2">Joueurs dans le plaquage</h2>
+        <p class="Niveau2">Les joueurs impliqués dans un plaquage sont :</p>
+        <ul class="Niveau2">
             <li>Le joueur plaqué.</li>
             <li>Le ou les plaqueurs.</li>
             <li>Autres:
@@ -580,25 +591,25 @@
             <li>Doivent arriver au plaquage du côté de leur ligne de but avant de jouer le ballon.</li>
             <li>Ne pas jouer le ballon ou tenter de plaquer un adversaire pendant qu’ils sont au sol près du plaquage.<br>Sanction : Pénalité</li>
         </ul>
-        <h2>Joueur lié au porteur du ballon : règle World Rugby (expérimentale saison 2021/2022)</h2>
-        <p>Lors d’un plaquage le joueur lié au porteur du ballon ne doit pas aller au sol</p>
+        <h2 class="Niveau2">Joueur lié au porteur du ballon : règle World Rugby (expérimentale saison 2021/2022)</h2>
+        <p class="Niveau2">Lors d’un plaquage le joueur lié au porteur du ballon ne doit pas aller au sol</p>
     </div>
 
 
     <h1>REGLE 15 LE RUCK</h1>
     <div class="container">
-        <h2>Ruck</h2>
-        <p>Une phase de jeu dans le cadre de laquelle un ou plusieurs joueurs de chaque équipe, qui sont sur leurs pieds et physiquement au contact, entourent le ballon au sol.</p>
+        <h2 class="Niveau2">Ruck</h2>
+        <p class="Niveau2">Une phase de jeu dans le cadre de laquelle un ou plusieurs joueurs de chaque équipe, qui sont sur leurs pieds et physiquement au contact, entourent le ballon au sol.</p>
         <h2 class="Niveau1">Rucking</h2>
         <p class="Niveau1">L’utilisation légale des pieds pour tenter de gagner ou conserver la possession du ballon dans un ruck.</p>
-        <h2>Equipe attaquante</h2>
-        <p>Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
-        <h2>Equipe défendante</h2>
-        <p>L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
+        <h2 class="Niveau2">Equipe attaquante</h2>
+        <p class="Niveau2">Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
+        <h2 class="Niveau2">Equipe défendante</h2>
+        <p class="Niveau2">L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
         <h2 class="Niveau1">Liaison (se lier)</h2>
         <p class="Niveau1">Saisir fermement le corps d’un autre joueur, des épaules aux hanches, avec la totalité du bras, de la main à l’épaule, en contact.</p>
-        <h2>Sur ses pieds</h2>
-        <p>Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
+        <h2 class="Niveau2">Sur ses pieds</h2>
+        <p class="Niveau2">Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
         <p class="Niveau1">L’objectif d’un ruck est de permettre aux joueurs de lutter pour le ballon qui est sol.</p>
         <h2 class="Niveau1">Formation du ruck</h2>
         <ul class="Niveau1">
@@ -623,17 +634,17 @@
 
     <h1>REGLE 16 LE MAUL</h1>
     <div class="container">
-        <h2>Maul</h2>
-        <p>Une phase de jeu consistant en un porteur du ballon et au moins un joueur de chaque équipe, liés entre eux et sur leurs pieds.</p>
-        <h2>Equipe attaquante </h2>
-        <p>Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
-        <h2>Equipe défendante</h2>
-        <p>L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
-        <h2>Liaison (se lier)</h2>
-        <p>Saisir fermement le corps d’un autre joueur, des épaules aux hanches, avec la totalité du bras, de la main à l’épaule, en contact.</p>
-        <h2>Sur ses pieds</h2>
-        <p>Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
-        <p>L’objectif d’un maul est de permettre aux joueurs de lutter pour le ballon qui n’est pas au sol. Une fois formé, un maul doit avancer vers une ligne de but.</p>
+        <h2 class="Niveau2">Maul</h2>
+        <p class="Niveau2">Une phase de jeu consistant en un porteur du ballon et au moins un joueur de chaque équipe, liés entre eux et sur leurs pieds.</p>
+        <h2 class="Niveau2">Equipe attaquante </h2>
+        <p class="Niveau2">Les adversaires de l’équipe dans la moitié du terrain de laquelle se joue la partie.</p>
+        <h2 class="Niveau2">Equipe défendante</h2>
+        <p class="Niveau2">L’équipe dans la moitié du terrain de laquelle se déroule le jeu.</p>
+        <h2 class="Niveau2">Liaison (se lier)</h2>
+        <p class="Niveau2">Saisir fermement le corps d’un autre joueur, des épaules aux hanches, avec la totalité du bras, de la main à l’épaule, en contact.</p>
+        <h2 class="Niveau2">Sur ses pieds</h2>
+        <p class="Niveau2">Un joueur est sur ses pieds si aucune autre partie de son corps ne s’appuie sur le sol ou sur des joueurs au sol.</p>
+        <p class="Niveau2">L’objectif d’un maul est de permettre aux joueurs de lutter pour le ballon qui n’est pas au sol. Une fois formé, un maul doit avancer vers une ligne de but.</p>
         <h2 class="Niveau1">Formation du maul</h2>
         <ul class="Niveau1">
             <li>Un maul ne peut avoir lieu que dans le champ de jeu.</li>
@@ -683,8 +694,8 @@
 
     <h1>REGLE 18 TOUCHE, TOUCHE RAPIDE ET ALIGNEMENT</h1>
     <div class="container">
-        <h2>Alignement</h2>
-        <p>Un alignement est une phase statique consistant en une ligne d’au moins deux joueurs de chaque équipe attendant de réceptionner un lancer en touche.</p>
+        <h2 class="Niveau2">Alignement</h2>
+        <p class="Niveau2">Un alignement est une phase statique consistant en une ligne d’au moins deux joueurs de chaque équipe attendant de réceptionner un lancer en touche.</p>
         <h2 class="Niveau1">Botté directement en touche</h2>
         <p class="Niveau1">Le ballon est botté en touche sans avoir rebondi dans l’aire de jeu ou touché un joueur ou l’arbitre.</p>
         <h2 class="Niveau1">Joueurs de l’alignement</h2>
@@ -726,8 +737,8 @@
             <tr><td>Un joueur, dans sa propre moitié de terrain, botte indirectement en touche dans les 22 adverses. Soit l’équipe n’a pas amené le ballon dans sa propre moitié de terrain, soit un plaquage, un ruck ou un maul a eu lieu à l’intérieur de la moitié de terrain, ou un adversaire a touché le ballon à l’intérieur de la moitié de terrain. Cette variation ne s’applique pas à un coup d’envoi ni à aucun type de renvois.</td><td>A l’endroit où le ballon a atteint la ligne de touche</td><td>L’équipe du joueur qui a botté le ballon</td></tr>
             <tr><td>Le porteur du ballon va en touche ou botte indirectement le ballon en touche (autrement que de sa propre moitié de terrain dans les 22 adverses)</td><td>A l’endroit où le joueur ou le ballon a touché la ligne de touche ou le sol au-delà de cette ligne</td><td>L’autre équipe</td></tr>
         </table>
-        <h2>Touche rapide</h2>
-        <p>Un joueur qui porte le ballon en touche doit libérer immédiatement le ballon pour qu’une une touche rapide puisse être effectuée.<br>Sanction : Pénalité</p>
+        <h2 class="Niveau2">Touche rapide</h2>
+        <p class="Niveau2">Un joueur qui porte le ballon en touche doit libérer immédiatement le ballon pour qu’une une touche rapide puisse être effectuée.<br>Sanction : Pénalité</p>
         <p class="Niveau1">Lors d’une touche rapide, le ballon est lancé :</p>
         <ul class="Niveau1">
             <li>Entre la marque de la touche et la ligne de but du lanceur ; et</li>
@@ -762,10 +773,10 @@
 
     <h1>REGLE 19 LA MELEE ORDONNEE</h1>
     <div class="container">
-        <h2>Mêlée ordonnée</h2>
-        <p>Une phase statique consistant normalement en une formation comportant huit joueurs de chaque équipe, liés entre eux.</p>
-        <h2>Mêlée simulée</h2>
-        <p>Une mêlée ordonnée dans le cadre de laquelle l’équipe qui effectue l’introduction gagne le ballon sans lutter et qu’aucune équipe n’a le droit de pousser.</p>
+        <h2 class="Niveau2">Mêlée ordonnée</h2>
+        <p class="Niveau2">Une phase statique consistant normalement en une formation comportant huit joueurs de chaque équipe, liés entre eux.</p>
+        <h2 class="Niveau2">Mêlée simulée</h2>
+        <p class="Niveau2">Une mêlée ordonnée dans le cadre de laquelle l’équipe qui effectue l’introduction gagne le ballon sans lutter et qu’aucune équipe n’a le droit de pousser.</p>
         <h2 class="Niveau1">Zone de la mêlée ordonnée</h2>
         <p class="Niveau1">L’aire dans le champ de jeu où peut avoir lieu une mêlée ordonnée.</p>
         <p class="Niveau1">L’objectif de la mêlée ordonnée est de reprendre le jeu avec une lutte pour la possession après une faute mineure ou un arrêt de jeu.</p>
@@ -783,14 +794,14 @@
 
     <h1>REGLE 20 PENALITE ET COUP FRANC</h1>
     <div class="container">
-        <h2>Pénalité</h2>
-        <p>Accordée contre une équipe qui a commis une infraction grave.</p>
-        <h2>Coup franc</h2>
-        <p>Accordé contre une équipe qui a commis une infraction ou à une équipe qui a effectué un marque.</p>
-        <h2>Coup de pied placé</h2>
-        <p>Le ballon est botté après avoir été placé au sol (ou sur un tee approuvé) pour cela.</p>
+        <h2 class="Niveau2">Pénalité</h2>
+        <p class="Niveau2">Accordée contre une équipe qui a commis une infraction grave.</p>
+        <h2 class="Niveau2">Coup franc</h2>
+        <p class="Niveau2">Accordé contre une équipe qui a commis une infraction ou à une équipe qui a effectué un marque.</p>
+        <h2 class="Niveau3">Coup de pied placé</h2>
+        <p class="Niveau3">Le ballon est botté après avoir été placé au sol (ou sur un tee approuvé) pour cela.</p>
         <p class="Niveau1">Les pénalités et coups francs sont accordés pour reprendre le jeu après des infractions.</p>
-        <p>La marque d’une pénalité ou d’un coup franc doit être dans le champ de jeu et jamais à moins de cinq mètres d’une ligne de but</p>
+        <p class="Niveau3">La marque d’une pénalité ou d’un coup franc doit être dans le champ de jeu et jamais à moins de cinq mètres d’une ligne de but</p>
         <p class="Niveau1">Droits et devoirs de l’équipe qui bénéficie d’une pénalité ou d’un coup franc</p>
         <p class="Niveau1">Droits et devoirs de l’équipe adverse sur pénalité ou coup franc</p>
     </div>
@@ -798,8 +809,8 @@
 
     <h1>REGLE 21 L’EN-BUT</h1>
     <div class="container">
-        <h2>En-but</h2>
-        <p>La zone située entre la ligne de but et la ligne de ballon mort, et entre les lignes de touche de but. L’en-but comprend la ligne de but, mais ni la ligne de ballon mort, ni les lignes de touche de but. Les poteaux et leur protection sont situés dans l’en-but.</p>
+        <h2 class="Niveau2">En-but</h2>
+        <p class="Niveau2">La zone située entre la ligne de but et la ligne de ballon mort, et entre les lignes de touche de but. L’en-but comprend la ligne de but, mais ni la ligne de ballon mort, ni les lignes de touche de but. Les poteaux et leur protection sont situés dans l’en-but.</p>
         <h2 class="Niveau1">Faire un touché à terre</h2>
         <p class="Niveau1">Un joueur peut faire un touché à terre de deux façons :</p>
         <ul class="Niveau1">
@@ -813,8 +824,8 @@
             <li>De demander une mêlée ordonnée à l’endroit où le ballon a été botté. </li>
         </ul>
         <p class="Niveau1">Exception : après l’échec d’une tentative de pénalité ou de drop-goal. Dans ces cas, l’équipe défendante reprend le jeu avec un renvoi aux 22</p>
-        <h2>Poteau porte drapeau</h2>
-        <p>Si le ballon ou un joueur porteur du ballon touche un drapeau ou un poteau de coin sans être en touche ou en touche de but, le ballon est toujours en jeu sauf si le touché à terre est effectué contre le poteau</p>
+        <h2 class="Niveau3">Poteau porte drapeau</h2>
+        <p class="Niveau3">Si le ballon ou un joueur porteur du ballon touche un drapeau ou un poteau de coin sans être en touche ou en touche de but, le ballon est toujours en jeu sauf si le touché à terre est effectué contre le poteau</p>
         <h2 class="Niveau1">Ballon bloqué dans l’en-but</h2>
         <p class="Niveau1">Lorsqu’un joueur porteur du ballon est bloqué dans l’en-but et ne peut pas effectuer de touché à terre ou jouer le ballon, le ballon est mort. Le jeu reprend par un drop de renvoi sur la ligne de but ou une mêlée à 5 mètres, selon la manière dont le ballon est entré dans l’en-but. (Règle 12.12.a, et Règle 19.1, alinéa 5).</p>
         <h2 class="Niveau1">Doute sur le toucher à terre</h2>
@@ -822,8 +833,127 @@
     </div>
 </body>
 <script type="text/javascript">
-    function DeleteTagging {
-        style.Niveau1 = 
+    function TaggingText(ButtonId) {
+        if ( ButtonId == "None" ) {
+            Elements = document.getElementsByClassName("Niveau1");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("YellowText");
+            }
+            Elements = document.getElementsByClassName("Niveau2");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("GreenText");
+            }
+            Elements = document.getElementsByClassName("Niveau3");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("BlueText");
+            }
+            Viewers = document.getElementsByClassName("Viewer");
+            for (var i = Viewers.length - 1; i >= 0; i--) {
+                Viewers[i].className = "Viewer GreyText";
+            }
+        } else {
+            if ( ButtonId == "Niveau1" || ButtonId == "All") {
+                Elements = document.getElementsByClassName("Niveau1");
+                for (var i = Elements.length - 1; i >= 0; i--) {
+                    Elements[i].classList.add("YellowText");
+                }
+                Viewer = document.getElementById("ViewNiveau1");
+                Viewer.classList.remove("GreyText");
+                Viewer.classList.add("YellowText");
+            }
+            if ( ButtonId == "Niveau2" || ButtonId == "All") {
+                Elements = document.getElementsByClassName("Niveau2");
+                for (var i = Elements.length - 1; i >= 0; i--) {
+                    Elements[i].classList.add("GreenText");
+                }
+                Viewer = document.getElementById("ViewNiveau2");
+                Viewer.classList.remove("GreyText");
+                Viewer.classList.add("GreenText");
+            }
+            if ( ButtonId == "Niveau3" || ButtonId == "All") {
+                Elements = document.getElementsByClassName("Niveau3");
+                for (var i = Elements.length - 1; i >= 0; i--) {
+                    Elements[i].classList.add("BlueText");
+                }
+                Viewer = document.getElementById("ViewNiveau3");
+                Viewer.classList.remove("GreyText");
+                Viewer.classList.add("BlueText");
+            }
+        }
+    }
+    function DisplayElements(ButtonId) {
+        if ( ButtonId == "Title" ) {
+            Elements = document.getElementsByTagName("p");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className != "PreAmbule" ) {
+                    Elements[i].classList.add("UnDisplay");
+                }
+            }
+            Elements = document.getElementsByTagName("h2");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.add("UnDisplay");
+            }
+            Elements = document.getElementsByTagName("ul");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.add("UnDisplay");
+            }
+            Elements = document.getElementsByTagName("table");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.add("UnDisplay");
+            }
+        } else if ( ButtonId == "All" ) {
+            Elements = document.getElementsByTagName("p");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className != "PreAmbule" ) {
+                    Elements[i].classList.remove("UnDisplay");
+                }
+            }
+            Elements = document.getElementsByTagName("h2");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("UnDisplay");
+            }
+            Elements = document.getElementsByTagName("ul");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("UnDisplay");
+            }
+            Elements = document.getElementsByTagName("table");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                Elements[i].classList.remove("UnDisplay");
+            }
+        } else if ( ButtonId == "Tagged" ) {
+            Elements = document.getElementsByTagName("p");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className.includes("Text") ) {
+                    Elements[i].classList.remove("UnDisplay");
+                } else {
+                    Elements[i].classList.add("UnDisplay");
+                }
+            }
+            Elements = document.getElementsByTagName("h2");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className.includes("Text") ) {
+                    Elements[i].classList.remove("UnDisplay");
+                } else {
+                    Elements[i].classList.add("UnDisplay");
+                }
+            }
+            Elements = document.getElementsByTagName("ul");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className.includes("Text") ) {
+                    Elements[i].classList.remove("UnDisplay");
+                } else {
+                    Elements[i].classList.add("UnDisplay");
+                }
+            }
+            Elements = document.getElementsByTagName("table");
+            for (var i = Elements.length - 1; i >= 0; i--) {
+                if ( Elements[i].className.includes("Text") ) {
+                    Elements[i].classList.remove("UnDisplay");
+                } else {
+                    Elements[i].classList.add("UnDisplay");
+                }
+            }
+        }
     }
 </script>
 </html>
