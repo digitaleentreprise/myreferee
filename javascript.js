@@ -84,7 +84,7 @@ function DisplayElements(ButtonId) {
         for (var i = Elements.length - 1; i >= 0; i--) {
             Elements[i].classList.add("UnDisplay");
         }
-        Math.floor(Math.random() * 100 / (Elements.length - 1));
+        var i = Math.floor(Math.random() * 100 / (Elements.length - 1));
         Elements[i].classList.remove("UnDisplay");
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
