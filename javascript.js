@@ -66,6 +66,26 @@ function DisplayElements(ButtonId) {
         for (var i = Elements.length - 1; i >= 0; i--) {
             Elements[i].classList.add("UnDisplay");
         }
+    } else if ( ButtonId == "SubTitle" ) {
+        Elements = document.getElementsByTagName("p");
+        for (var i = Elements.length - 1; i >= 0; i--) {
+            if ( Elements[i].className != "PreAmbule" ) {
+                Elements[i].classList.add("UnDisplay");
+            }
+        }
+    } else if ( ButtonId == "RandomSubTitle" ) {
+        Elements = document.getElementsByTagName("p");
+        for (var i = Elements.length - 1; i >= 0; i--) {
+            if ( Elements[i].className != "PreAmbule" ) {
+                Elements[i].classList.add("UnDisplay");
+            }
+        }
+        Elements = document.getElementsByTagName("h2");
+        for (var i = Elements.length - 1; i >= 0; i--) {
+            Elements[i].classList.add("UnDisplay");
+        }
+        Math.floor(Math.random() * 100 / (Elements.length - 1));
+        Elements[i].classList.remove("UnDisplay");
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
         for (var i = Elements.length - 1; i >= 0; i--) {
