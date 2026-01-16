@@ -86,6 +86,7 @@ function DisplayElements(ButtonId) {
         }
         var i = Math.floor(Math.random() * 100 / (Elements.length - 1));
         Elements[i].classList.remove("UnDisplay");
+        document.getElementsByClassName("RamdonNumber").innertext = i;
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
         for (var i = Elements.length - 1; i >= 0; i--) {
