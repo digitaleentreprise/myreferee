@@ -92,7 +92,7 @@ function DisplayElements(ButtonId) {
         document.getElementById("NumElement").innerHTML = NumElement;
         Elements[NumElement].classList.remove("UnDisplay");
         document.getElementById("Answer").classList.remove("UnDisplay");
-        document.getElementById("Answer").id=NumElement;
+        document.getElementById("Answer").id = NumElement;
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
         for (var i = Elements.length - 1; i >= 0; i--) {
@@ -148,7 +148,7 @@ function DisplayElements(ButtonId) {
     } else {
         Elements = document.getElementsByTagName("p");
     	Elements[ButtonId].classList.remove("UnDisplay");
-        document.getElementById("ButtonId").classList.add("UnDisplay");
-        document.getElementById("ButtonId").id=Answer;
+        document.getElementById(ButtonId).classList.add("UnDisplay");
+        document.getElementById(ButtonId).id = "Answer";
     }
 }
