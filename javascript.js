@@ -84,9 +84,11 @@ function DisplayElements(ButtonId) {
         for (var i = Elements.length - 1; i >= 0; i--) {
             Elements[i].classList.add("UnDisplay");
         }
-        var i = Math.floor(Math.random() * 100 / (Elements.length - 1));
-        Elements[i].classList.remove("UnDisplay");
-        document.getElementsByClassName("RamdonNumber").innertext = i;
+        var i = Math.floor(Math.random());
+        var NumElements = Elements.length - 1;
+        var NumElement = i / NumElements
+        Elements[NumElement].classList.remove("UnDisplay");
+        document.getElementsByClassName("RamdonNumber").innerHTML = NumElement;
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
         for (var i = Elements.length - 1; i >= 0; i--) {
