@@ -84,10 +84,12 @@ function DisplayElements(ButtonId) {
         for (var i = Elements.length - 1; i >= 0; i--) {
             Elements[i].classList.add("UnDisplay");
         }
-        var i = Math.floor(Math.random() * 100 );
+        var RamdonNumber = Math.floor(Math.random() * 100 );
         var NumElements = Elements.length - 1;
-        var NumElement = i / NumElements
-        document.getElementById("RamdonNumber").innerHTML = NumElement;
+        var NumElement = RamdonNumber / NumElements;
+        document.getElementById("RamdonNumber").innerHTML = RamdonNumber;
+        document.getElementById("NumElements").innerHTML = NumElements;
+        document.getElementById("NumElement").innerHTML = NumElement;
         Elements[NumElement].classList.remove("UnDisplay");
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
