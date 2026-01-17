@@ -91,6 +91,8 @@ function DisplayElements(ButtonId) {
         document.getElementById("NumElements").innerHTML = NumElements;
         document.getElementById("NumElement").innerHTML = NumElement;
         Elements[NumElement].classList.remove("UnDisplay");
+        document.getElementById("Answer").classList.remove("UnDisplay");
+        document.getElementById("Answer").id=NumElement;
     } else if ( ButtonId == "All" ) {
         Elements = document.getElementsByTagName("p");
         for (var i = Elements.length - 1; i >= 0; i--) {
@@ -143,5 +145,10 @@ function DisplayElements(ButtonId) {
                 Elements[i].classList.add("UnDisplay");
             }
         }
+    } else {
+        Elements = document.getElementsByTagName("p");
+    	Elements[ButtonId].classList.remove("UnDisplay");
+        document.getElementById("ButtonId").classList.add("UnDisplay");
+        document.getElementById("ButtonId").id=Answer;
     }
 }
