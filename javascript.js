@@ -86,7 +86,7 @@ function DisplayElements(ButtonId) {
         }
         var RamdonNumber = Math.floor(Math.random() * 100 );
         var NumElements = Elements.length - 1;
-        var NumElement = RamdonNumber / NumElements;
+        var NumElement = RamdonNumber * NumElements / 100;
         document.getElementById("RamdonNumber").innerHTML = RamdonNumber;
         document.getElementById("NumElements").innerHTML = NumElements;
         document.getElementById("NumElement").innerHTML = NumElement;
